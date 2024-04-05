@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  !!!!   ADD GM TAG TO THE OBJECT THAT HAS THIS SCRIPT
+/// </summary>
 public class GM : MonoBehaviour
 {
     public GameObject PastLevel;
     public GameObject PresentLevel;
 
-    private void Start()
+   public List<KeyData> CollectedKeys = new List<KeyData>();
+    private void Start()    
     {
         PastLevel.SetActive(false);
     }
@@ -20,7 +24,7 @@ public class GM : MonoBehaviour
               Invoke("GoToPast",0.5f);
             }
             else
-            {
+            {   
                 Invoke("GoToPresent", 0.5f);
             }
 
@@ -38,5 +42,10 @@ public class GM : MonoBehaviour
         PastLevel.SetActive(false);
         PresentLevel.SetActive(true);
 
+    }
+
+    public void AllKeysAreCollected()
+    {
+        //// do something when you collect all keys
     }
 }
