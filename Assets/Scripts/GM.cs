@@ -47,7 +47,7 @@ public class GM : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) { pauseRef.PauseBehaviour(); }// pause menu
 
         if(numberOfKeys.text != CollectedKeys.Count.ToString()) { ChangeKeyNumberText(); }
-        ChangeKeyNumberText();
+    
     }
     public void GoToPast()
     {
