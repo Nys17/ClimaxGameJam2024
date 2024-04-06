@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
-using UnityEngine.UI;
+using FMODUnity;
 
 public class DialogueObserver : Observer
 {
 #region Variables
+    [Header("Audio")]
+    [SerializeField] private EventReference dialogueSound;
+    [SerializeField] private EventReference dialogueEndSound;
+
     [Header("Common")] public TextMeshProUGUI text;
     [Range(0.01f, 0.5f)] public float textSpeed;
     private int index;
@@ -20,7 +23,13 @@ public class DialogueObserver : Observer
     [Header("Non-Conditional")]
     public string[] conditionPassedLines;
 
-    #endregion
+#endregion
+
+    void Start()
+    {
+        text.text = string.Empty;
+        text.gameObject.SetActive(false);
+    }
 
     protected override void OnEventFired()
     {
@@ -36,6 +45,7 @@ public class DialogueObserver : Observer
                 else{
                     StopAllCoroutines();
                     text.text = conditionFailedLines[index];
+                    AudioManager.instance.PlayOneShot(dialogueEndSound, this.transform.position);
                 }
             }
             else{
@@ -45,12 +55,13 @@ public class DialogueObserver : Observer
                 else{
                     StopAllCoroutines();
                     text.text = conditionPassedLines[index];
+                    AudioManager.instance.PlayOneShot(dialogueEndSound, this.transform.position);
                 }
             }
         }
     }
 
-    #region Start/Continue Dialogue
+#region Start/Continue Dialogue
     private void StartDialogue(){
         index = 0;
         text.gameObject.SetActive(true);
@@ -96,8 +107,10 @@ public class DialogueObserver : Observer
     IEnumerator TypeLine(string[] passedLines){
         foreach (char c in passedLines[index].ToCharArray()){
             text.text += c;
+            AudioManager.instance.PlayOneShot(dialogueSound, this.transform.position);
             yield return new WaitForSeconds(textSpeed);
         }
+        AudioManager.instance.PlayOneShot(dialogueEndSound, this.transform.position);
     }
 
 #endregion
