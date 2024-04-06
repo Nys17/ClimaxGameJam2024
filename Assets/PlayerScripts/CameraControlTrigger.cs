@@ -6,7 +6,7 @@ using UnityEditor;
 public class CameraControlTrigger : MonoBehaviour
 {
     public CustomInspectorObjects customInspectorObjects;
-    private Collider coll;
+    public Collider coll;
     private void Start()
     {
         coll = GetComponent<Collider>();
@@ -14,6 +14,7 @@ public class CameraControlTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+            Debug.Log("enter");
         if (collision.CompareTag("Player"))
         {
             if (customInspectorObjects.panCameraOnContact)
@@ -27,9 +28,11 @@ public class CameraControlTrigger : MonoBehaviour
     }
     private void OnTriggerExit(Collider collision)
     {
+            Debug.Log("exit");
         if (collision.CompareTag("Player"))
         {
             Vector2 exitDirection = (collision.transform.position - coll.bounds.center).normalized;
+
             
             if (customInspectorObjects.swapCameras && customInspectorObjects.cameraOnLeft != null && customInspectorObjects.cameraOnRight != null)
             {
