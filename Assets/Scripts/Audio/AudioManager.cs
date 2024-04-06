@@ -50,6 +50,12 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
+    void Start()
+    {
+        StopMusic();
+        InitaliseMusicEvent(FMODEvents.instance.menuMusic);
+    }
+    
     void Update()
     {
         masterBus.setVolume(masterVolume);
