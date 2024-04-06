@@ -6,10 +6,10 @@ using UnityEditor;
 public class CameraControlTrigger : MonoBehaviour
 {
     public CustomInspectorObjects customInspectorObjects;
-    private Collider2D coll;
+    private Collider coll;
     private void Start()
     {
-        coll = GetComponent<Collider2D>();
+        coll = GetComponent<Collider>();
     }
 
     private void OnTriggerEnter(Collider collision)
