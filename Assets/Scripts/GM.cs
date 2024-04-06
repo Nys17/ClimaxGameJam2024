@@ -5,8 +5,14 @@ using UnityEngine;
 /// <summary>
 ///  !!!!   ADD GM TAG TO THE OBJECT THAT HAS THIS SCRIPT
 /// </summary>
+/// 
+
 public class GM : MonoBehaviour
 {
+   public enum State { Past, Present};
+
+    public State currentState;
+
     public GameObject PastLevel;
     public GameObject PresentLevel;
     PauseMenu pauseRef;
@@ -18,6 +24,7 @@ public class GM : MonoBehaviour
     {
         PastLevel.SetActive(false);
         pauseRef = GetComponent<PauseMenu>();
+        currentState = State.Present;
     }
 
     private void Update()
@@ -40,6 +47,7 @@ public class GM : MonoBehaviour
     {
         PastLevel.SetActive(true);
         PresentLevel.SetActive(false);
+        currentState = State.Past;
 
     }
 
@@ -47,7 +55,7 @@ public class GM : MonoBehaviour
     {
         PastLevel.SetActive(false);
         PresentLevel.SetActive(true);
-
+        currentState = State.Present;
     }
 
      void AllKeysAreCollected()
