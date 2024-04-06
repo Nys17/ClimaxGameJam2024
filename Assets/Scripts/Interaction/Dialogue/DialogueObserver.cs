@@ -7,9 +7,6 @@ using FMODUnity;
 public class DialogueObserver : Observer
 {
 #region Variables
-    [Header("Audio")]
-    [SerializeField] private EventReference dialogueSound;
-    [SerializeField] private EventReference dialogueEndSound;
 
     [Header("Common")] public TextMeshProUGUI text;
     [Range(0.01f, 0.5f)] public float textSpeed;
@@ -45,7 +42,7 @@ public class DialogueObserver : Observer
                 else{
                     StopAllCoroutines();
                     text.text = conditionFailedLines[index];
-                    AudioManager.instance.PlayOneShot(dialogueEndSound, this.transform.position);
+                    AudioManager.instance.PlayOneShot(FMODEvents.instance.dialogueEndSound, this.transform.position);
                 }
             }
             else{
@@ -55,7 +52,7 @@ public class DialogueObserver : Observer
                 else{
                     StopAllCoroutines();
                     text.text = conditionPassedLines[index];
-                    AudioManager.instance.PlayOneShot(dialogueEndSound, this.transform.position);
+                    AudioManager.instance.PlayOneShot(FMODEvents.instance.dialogueEndSound, this.transform.position);
                 }
             }
         }
@@ -107,10 +104,10 @@ public class DialogueObserver : Observer
     IEnumerator TypeLine(string[] passedLines){
         foreach (char c in passedLines[index].ToCharArray()){
             text.text += c;
-            AudioManager.instance.PlayOneShot(dialogueSound, this.transform.position);
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.dialogueSound, this.transform.position);
             yield return new WaitForSeconds(textSpeed);
         }
-        AudioManager.instance.PlayOneShot(dialogueEndSound, this.transform.position);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.dialogueEndSound, this.transform.position);
     }
 
 #endregion
