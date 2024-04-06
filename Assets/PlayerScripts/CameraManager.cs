@@ -5,7 +5,7 @@ using Cinemachine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
-    [SerializeField] private CinemachineVirtualCamera[] allVirtualCameras;
+    [SerializeField] public CinemachineVirtualCamera[] allVirtualCameras;
     [SerializeField] private float fallPanAmout = 0.25f;
     [SerializeField] private float fallYPanTime = 0.35f;
 
@@ -153,7 +153,7 @@ public class CameraManager : MonoBehaviour
         }
 
         // if the current camera is the camera on the right and our trigger exit direction was on the left
-        if (currentCamera == cameraFromLeft && triggerExitDirection.x > 0f)
+        if (currentCamera == cameraFromRight && triggerExitDirection.x < 0f)
         {
             // activate the new camera
             cameraFromLeft.enabled = true;
