@@ -11,6 +11,9 @@ public class GM : MonoBehaviour
     public GameObject PresentLevel;
     PauseMenu pauseRef;
    public List<KeyData> CollectedKeys = new List<KeyData>();
+
+    bool allKeysCollected = false;
+
     private void Start()    
     {
         PastLevel.SetActive(false);
@@ -19,7 +22,7 @@ public class GM : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Tab)) {
+        if (Input.GetKeyDown(KeyCode.Tab)) {
             if (PastLevel.activeInHierarchy == false)
             {
               Invoke("GoToPast",0.5f);
@@ -31,7 +34,7 @@ public class GM : MonoBehaviour
 
         }
 
-        if (Input.GetKey(KeyCode.Escape)) { pauseRef.PauseBehaviour(); }// pause menu
+        if (Input.GetKeyDown(KeyCode.Escape)) { pauseRef.PauseBehaviour(); }// pause menu
     }
     public void GoToPast()
     {
@@ -47,8 +50,15 @@ public class GM : MonoBehaviour
 
     }
 
-    public void AllKeysAreCollected()
+     void AllKeysAreCollected()
     {
-        //// do something when you collect all keys
+            if(CollectedKeys.Count == 4)
+             {
+            allKeysCollected = true;
+        }
     }
+
+    public bool GetKeysCollectedBool() { return  allKeysCollected; } 
+
+
 }
