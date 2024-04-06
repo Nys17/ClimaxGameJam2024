@@ -9,11 +9,12 @@ public class GM : MonoBehaviour
 {
     public GameObject PastLevel;
     public GameObject PresentLevel;
-
+    PauseMenu pauseRef;
    public List<KeyData> CollectedKeys = new List<KeyData>();
     private void Start()    
     {
         PastLevel.SetActive(false);
+        pauseRef = GetComponent<PauseMenu>();
     }
 
     private void Update()
@@ -29,6 +30,8 @@ public class GM : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKey(KeyCode.Escape)) { pauseRef.PauseBehaviour(); }// pause menu
     }
     public void GoToPast()
     {
