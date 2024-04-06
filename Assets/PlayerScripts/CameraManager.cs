@@ -5,7 +5,7 @@ using Cinemachine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
-    [SerializeField] private CinemachineVirtualCamera[] allVirtualCameras;
+    [SerializeField] public CinemachineVirtualCamera[] allVirtualCameras;
     [SerializeField] private float fallPanAmout = 0.25f;
     [SerializeField] private float fallYPanTime = 0.35f;
 
