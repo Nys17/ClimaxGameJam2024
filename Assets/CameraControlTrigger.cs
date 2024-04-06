@@ -22,11 +22,21 @@ public class CameraControlTrigger : MonoBehaviour
                 CameraManager.instance.PanCameraOnContact(customInspectorObjects.panDistance, customInspectorObjects.panTime, customInspectorObjects.panDirection, false);
             }
         }
+
+      
     }
     private void OnTriggerExit(Collider collision)
     {
         if (collision.CompareTag("Player"))
         {
+            Vector2 exitDirection = (collision.transform.position - coll.bounds.center).normalized;
+            
+            if (customInspectorObjects.swapCameras && customInspectorObjects.cameraOnLeft != null && customInspectorObjects.cameraOnRight != null)
+            {
+                // swap cameras
+                CameraManager.instance.SwapCamera(customInspectorObjects.cameraOnLeft, customInspectorObjects.cameraOnRight, exitDirection);
+            }
+
             if (customInspectorObjects.panCameraOnContact)
             {
                 //pan the camera back to the starting position
