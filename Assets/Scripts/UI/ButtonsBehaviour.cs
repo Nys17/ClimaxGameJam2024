@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 public class ButtonsBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject optionsMenu;
-    public  void OnClickStart()  {SceneManager.LoadScene(1); }
+    public  void OnClickStart()  {
+        AudioManager.instance.StopMusic();
+        AudioManager.instance.InitaliseMusicEvent(FMODEvents.instance.presentMusic);
+        SceneManager.LoadScene(1);
+    }
 
     public void OnClickQuit() { Application.Quit(); }
 
