@@ -400,20 +400,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subjectToObserve: {fileID: 1163101018}
-  dialogueSound:
-    Guid:
-      Data1: 1783864120
-      Data2: 1086285611
-      Data3: -1808831609
-      Data4: 158397429
-    Path: event:/DialogueText
-  dialogueEndSound:
-    Guid:
-      Data1: -1579957859
-      Data2: 1266768610
-      Data3: -303275366
-      Data4: 1351887982
-    Path: event:/DialogueTextEnded
   text: {fileID: 710821833}
   textSpeed: 0.12
   isConditionMet: 1
@@ -432,6 +418,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1106205348}
   - component: {fileID: 1106205349}
+  - component: {fileID: 1106205350}
+  - component: {fileID: 1106205351}
+  - component: {fileID: 1106205353}
+  - component: {fileID: 1106205352}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -466,6 +456,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac052822edda11b409c1b38580e66f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1106205350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead4d228444adeb448bad55b6a319c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMusic:
+    Guid:
+      Data1: 1613091757
+      Data2: 1297350926
+      Data3: 115888286
+      Data4: -706318415
+    Path: event:/Menu BGM
+  pastMusic:
+    Guid:
+      Data1: -211302549
+      Data2: 1203702335
+      Data3: 2106858924
+      Data4: 927589090
+    Path: event:/Past BGM
+  presentMusic:
+    Guid:
+      Data1: -105703777
+      Data2: 1108566022
+      Data3: 766211984
+      Data4: 1471899532
+    Path: event:/Present BGM
+  endingMusic:
+    Guid:
+      Data1: 1430096512
+      Data2: 1315877395
+      Data3: 1060258997
+      Data4: -866114720
+    Path: event:/End Screen BGM
+  powerUnlockedMusic:
+    Guid:
+      Data1: -600733464
+      Data2: 1265527957
+      Data3: -673388152
+      Data4: -223329368
+    Path: event:/Powers Unlock BGM
+  dialogueSound:
+    Guid:
+      Data1: 1783864120
+      Data2: 1086285611
+      Data3: -1808831609
+      Data4: 158397429
+    Path: event:/DialogueText
+  dialogueEndSound:
+    Guid:
+      Data1: -1579957859
+      Data2: 1266768610
+      Data3: -303275366
+      Data4: 1351887982
+    Path: event:/DialogueTextEnded
+--- !u!114 &1106205351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bb36c25e25adc428af9996b91545f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subjectToObserve: {fileID: 1106205352}
+--- !u!114 &1106205352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27105d440246f74085d0d71b5bb5a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPresent: 0
+--- !u!114 &1106205353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106205347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1ac74d49adbbd4cb411fb3d7dca74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subjectToObserve: {fileID: 1106205352}
 --- !u!1 &1163101015
 GameObject:
   m_ObjectHideFlags: 0
