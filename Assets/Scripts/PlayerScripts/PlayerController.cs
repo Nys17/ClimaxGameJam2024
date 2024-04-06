@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     public float x;
     public float speed = 1f;
     public float jumpHeight;
+
+    public Vector3 boxSize;
+    public float castDistance;
+    public LayerMask groundLayer;
+
+    public bool isGrounded;
     
     public bool IsFacingRight;
     
@@ -35,7 +41,7 @@ public class PlayerController : MonoBehaviour
         Move = Move * speed * Time.deltaTime;
         transform.position += Move;
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump")&& isGrounded)
         {
             rb.AddForce(Vector2.up * jumpHeight, ForceMode.Impulse);
         }
@@ -53,14 +59,24 @@ public class PlayerController : MonoBehaviour
             CameraManager.instance.LerpYDamping(false);
         }
     }
+  
 
     private void FixedUpdate()
     {
         if (Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
         {
             TurnCheck();
-        }   
+        }
+        
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position - transform.up *castDistance, boxSize);
+
+        
+    }
+
     private void TurnCheck()
     {
         if (Input.GetAxisRaw("Horizontal") >0 &&!IsFacingRight)
@@ -90,6 +106,21 @@ public class PlayerController : MonoBehaviour
             IsFacingRight = !IsFacingRight;
             // turn the camera follow object
             camFollowObject.CallTurn();
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
 
