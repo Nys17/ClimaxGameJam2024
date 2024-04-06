@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using UnityEngine;
 
 
@@ -26,11 +27,15 @@ public class PlayerController : MonoBehaviour
     private CamFollowObject camFollowObject;
     private float fallSpeedYDampingChangeThreshold;
 
+    //audio
+    private EventInstance footstepInstance;
+
     // Start is called before the first frame update
     void Start()
     {
         camFollowObject = cameraFollowGo.GetComponent<CamFollowObject>();
         fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
+        footstepInstance = AudioManager.instance.createEventInstance(FMODEvents.instance.footstepSound);
     }
 
     // Update is called once per frame
@@ -41,9 +46,13 @@ public class PlayerController : MonoBehaviour
         Move = Move * speed * Time.deltaTime;
         transform.position += Move;
 
+        // Play footsteps
+        UpdateSound();
+
         if (Input.GetButtonDown("Jump")&& isGrounded)
         {
             rb.AddForce(Vector2.up * jumpHeight, ForceMode.Impulse);
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.jumpSound, this.gameObject.transform.position); // Play jump sound
         }
         //if we are falling past a certain speed threshold
         if (rb.velocity.y < fallSpeedYDampingChangeThreshold && !CameraManager.instance.IsLerpingYDamping&& !CameraManager.instance.lerpedFromPlayerFalling)
@@ -124,5 +133,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void UpdateSound(){
+        if (Move.x != 0 && isGrounded){
+            PLAYBACK_STATE playbackState;
+            footstepInstance.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED)){
+                footstepInstance.start();
+            }
+        }
+        else{
+            footstepInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        }
+    }
 
 }

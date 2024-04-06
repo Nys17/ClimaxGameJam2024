@@ -187,3 +187,17 @@ MonoBehaviour:
       Data3: -303275366
       Data4: 1351887982
     Path: event:/DialogueTextEnded
+  jumpSound:
+    Guid:
+      Data1: 2073523631
+      Data2: 1085501336
+      Data3: 579321524
+      Data4: -57842300
+    Path: event:/Jump
+  footstepSound:
+    Guid:
+      Data1: 1259574265
+      Data2: 1175256988
+      Data3: -979693386
+      Data4: -629483076
+    Path: event:/Footsteps

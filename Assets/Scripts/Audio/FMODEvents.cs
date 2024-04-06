@@ -18,6 +18,9 @@ public class FMODEvents : MonoBehaviour
     public EventReference dialogueSound;
     public EventReference dialogueEndSound;
 
+    [field: Header ("Sound Effects")]
+    public EventReference jumpSound;
+    public EventReference footstepSound;
 
     #endregion
 
