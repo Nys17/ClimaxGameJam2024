@@ -2042,19 +2042,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1203174308417587841, guid: ff81bc51fbec6124b80e2a74c934f6ed, type: 3}
       propertyPath: customInspectorObjects.swapCameras
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1203174308417587841, guid: ff81bc51fbec6124b80e2a74c934f6ed, type: 3}
       propertyPath: customInspectorObjects.cameraOnLeft
       value: 
       objectReference: {fileID: 1676744248}
     - target: {fileID: 1203174308417587841, guid: ff81bc51fbec6124b80e2a74c934f6ed, type: 3}
+      propertyPath: customInspectorObjects.panDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203174308417587841, guid: ff81bc51fbec6124b80e2a74c934f6ed, type: 3}
       propertyPath: customInspectorObjects.cameraOnRight
       value: 
       objectReference: {fileID: 292924716}
     - target: {fileID: 1203174308417587841, guid: ff81bc51fbec6124b80e2a74c934f6ed, type: 3}
       propertyPath: customInspectorObjects.panCameraOnContact
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3117291320324230123, guid: ff81bc51fbec6124b80e2a74c934f6ed, type: 3}
       propertyPath: m_Name
@@ -2186,8 +2190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraFollowGo: {fileID: 2066120685}
   x: 0
-  speed: 3
-  jumpHeight: 5
+  speed: 5
+  jumpHeight: 8
   IsFacingRight: 0
   rb: {fileID: 2095909573}
 --- !u!23 &2095909570
