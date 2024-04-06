@@ -18,9 +18,11 @@ public class CollectibleKey : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")){ 
-            GMRef.CollectedKeys.Add(dataRef);
+            GMRef.CollectedKeys.Add(dataRef.KeyID);
 
             Destroy(this.gameObject);
         }
     }
+
+
 }

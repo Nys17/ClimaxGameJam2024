@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 ///  !!!!   ADD GM TAG TO THE OBJECT THAT HAS THIS SCRIPT
@@ -16,10 +18,11 @@ public class GM : MonoBehaviour
     public GameObject PastLevel;
     public GameObject PresentLevel;
     PauseMenu pauseRef;
-   public List<KeyData> CollectedKeys = new List<KeyData>();
+   public List<int> CollectedKeys = new List<int>();
 
     bool allKeysCollected = false;
 
+    public TMP_Text numberOfKeys;
     private void Start()    
     {
         PastLevel.SetActive(false);
@@ -42,6 +45,9 @@ public class GM : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) { pauseRef.PauseBehaviour(); }// pause menu
+
+        if(numberOfKeys.text != CollectedKeys.Count.ToString()) { ChangeKeyNumberText(); }
+        ChangeKeyNumberText();
     }
     public void GoToPast()
     {
@@ -68,5 +74,8 @@ public class GM : MonoBehaviour
 
     public bool GetKeysCollectedBool() { return  allKeysCollected; } 
 
-
+    public void ChangeKeyNumberText()
+    {
+        numberOfKeys.text = CollectedKeys.Count.ToString();
+    }
 }
