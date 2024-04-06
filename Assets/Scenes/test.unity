@@ -2010,8 +2010,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allVirtualCameras:
   - {fileID: 1676744248}
-  - {fileID: 292924716}
-  - {fileID: 380780850}
   fallPanAmout: 0.25
   fallYPanTime: 0.35
   fallSpeedYDampingChangeThreshold: -15
