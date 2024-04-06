@@ -456,8 +456,8 @@ GameObject:
   m_Component:
   - component: {fileID: 450424177}
   - component: {fileID: 450424179}
-  - component: {fileID: 450424178}
   - component: {fileID: 450424180}
+  - component: {fileID: 450424181}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -483,14 +483,6 @@ Transform:
   - {fileID: 1638172461}
   m_Father: {fileID: 1953879849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &450424178
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450424176}
-  m_Enabled: 1
 --- !u!20 &450424179
 Camera:
   m_ObjectHideFlags: 0
@@ -576,6 +568,19 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &450424181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450424176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!4 &541175265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: acd7b166f7450564aaafcbee9e22f4db, type: 3}
@@ -940,16 +945,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 753891099}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: acd7b166f7450564aaafcbee9e22f4db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3465
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: acd7b166f7450564aaafcbee9e22f4db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.956735
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: acd7b166f7450564aaafcbee9e22f4db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0668938
+      value: 3.0669
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: acd7b166f7450564aaafcbee9e22f4db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60.379787
+      value: 63.116
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: acd7b166f7450564aaafcbee9e22f4db, type: 3}
       propertyPath: m_LocalRotation.w
