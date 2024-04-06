@@ -11,6 +11,9 @@ public class GM : MonoBehaviour
     public GameObject PresentLevel;
     PauseMenu pauseRef;
    public List<KeyData> CollectedKeys = new List<KeyData>();
+
+    bool allKeysCollected = false;
+
     private void Start()    
     {
         PastLevel.SetActive(false);
@@ -47,8 +50,15 @@ public class GM : MonoBehaviour
 
     }
 
-    public void AllKeysAreCollected()
+     void AllKeysAreCollected()
     {
-        //// do something when you collect all keys
+            if(CollectedKeys.Count == 4)
+             {
+            allKeysCollected = true;
+        }
     }
+
+    public bool GetKeysCollectedBool() { return  allKeysCollected; } 
+
+
 }
