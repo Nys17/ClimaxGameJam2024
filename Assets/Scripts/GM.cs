@@ -19,7 +19,7 @@ public class GM : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Tab)) {
+        if (Input.GetKeyDown(KeyCode.Tab)) {
             if (PastLevel.activeInHierarchy == false)
             {
               Invoke("GoToPast",0.5f);
@@ -31,7 +31,7 @@ public class GM : MonoBehaviour
 
         }
 
-        if (Input.GetKey(KeyCode.Escape)) { pauseRef.PauseBehaviour(); }// pause menu
+        if (Input.GetKeyDown(KeyCode.Escape)) { pauseRef.PauseBehaviour(); }// pause menu
     }
     public void GoToPast()
     {
