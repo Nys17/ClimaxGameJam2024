@@ -13,7 +13,11 @@ public class ButtonsBehaviour : MonoBehaviour
 
     public void OnClickQuit() { Application.Quit(); }
 
-    public void OnClickBackToStartMenu() { SceneManager.LoadScene(0); }
+    public void OnClickBackToStartMenu() { 
+        AudioManager.instance.StopMusic();
+        AudioManager.instance.InitaliseMusicEvent(FMODEvents.instance.menuMusic);
+        SceneManager.LoadScene(0);
+    }
 
     public void OnClickOptions() { optionsMenu.SetActive(true); }
 
