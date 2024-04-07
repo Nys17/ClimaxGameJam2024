@@ -35,14 +35,14 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         if (instance != null){
-            Debug.LogError("More then 1 Audio Manager in Scene.");
+            Debug.Log("More then 1 Audio Manager in Scene.");
             if (instance != this){
                 Destroy(gameObject);
             }
         }
         else{
             instance = this;
-            eventInstances = new List<EventInstance>();
+           
             musicEventInstances = new List<EventInstance>();
 
             #region Bus Init
@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour
             dialogueBus = RuntimeManager.GetBus("bus:/Dialogue");
             #endregion
         }
-
+        eventInstances = new List<EventInstance>();
     }
     #endregion
 

@@ -30,9 +30,10 @@ public class FMODEvents : MonoBehaviour
     void Awake()
     {
         if (instance != null){
-            Debug.LogError("More then 1 FMOD Events in Scene.");
+            Debug.Log("More then 1 FMOD Events in Scene.");
             if (instance != this){
                 Destroy(gameObject);
+                Debug.Log("wwwwwwww");
             }
         }
         else{
