@@ -195,3 +195,4 @@ MonoBehaviour:
   isGrounded: 0
   IsFacingRight: 0
   rb: {fileID: 9165553216516363475}
+  playerAnim: {fileID: 6544494528496084149}

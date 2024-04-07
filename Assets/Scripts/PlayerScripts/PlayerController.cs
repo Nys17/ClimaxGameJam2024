@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     
     public Rigidbody rb;
 
+    public Animator playerAnim;
+
     private CamFollowObject camFollowObject;
     private float fallSpeedYDampingChangeThreshold;
 
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
         Move = new Vector3(x, 0, 0);
         Move = Move * speed * Time.deltaTime;
         transform.position += Move;
-
+        playerAnim.SetFloat("MovementSpeed", x); ///anim
         // Play footsteps
         UpdateSound();
 
@@ -53,6 +55,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpHeight, ForceMode.Impulse);
             AudioManager.instance.PlayOneShot(FMODEvents.instance.jumpSound, this.gameObject.transform.position); // Play jump sound
+            playerAnim.SetBool("isJumping", true);
+        }
+        else
+        {
+            playerAnim.SetBool("isJumping", false);
         }
         //if we are falling past a certain speed threshold
         if (rb.velocity.y < fallSpeedYDampingChangeThreshold && !CameraManager.instance.IsLerpingYDamping&& !CameraManager.instance.lerpedFromPlayerFalling)
